@@ -24,12 +24,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/auth/register",
+							"raw": "{{baseUrl}}api/auth/register",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"auth",
 								"register"
 							]
@@ -91,12 +90,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/projects/",
+							"raw": "{{baseUrl}}api/projects/",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"projects",
 								""
 							]
@@ -116,12 +114,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/projects/",
+							"raw": "{{baseUrl}}api/projects/",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"projects",
 								""
 							]
@@ -141,12 +138,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/projects/:id",
+							"raw": "{{baseUrl}}api/projects/:id",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"projects",
 								":id"
 							],
@@ -186,12 +182,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/tasks/",
+							"raw": "{{baseUrl}}api/tasks/",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"tasks",
 								""
 							]
@@ -211,12 +206,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/tasks/",
+							"raw": "{{baseUrl}}api/tasks/",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"tasks",
 								""
 							]
@@ -236,12 +230,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/tasks/:projectId",
+							"raw": "{{baseUrl}}api/tasks/:projectId",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}api"
 							],
 							"path": [
-								"api",
 								"tasks",
 								":projectId"
 							],
@@ -283,7 +276,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:3000"
+			"value": "https://trello-clone-backend-tzd2.onrender.com/"
 		},
 		{
 			"key": "token",
