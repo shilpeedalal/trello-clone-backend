@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "63de259d-a7d1-43f3-a6f7-e77917e8042f",
+		"_postman_id": "62b5fe04-ae8e-4def-927f-b37d4cb8527d",
 		"name": "Trello Clone Backend API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25953615"
+		"_exporter_id": "25940869"
 	},
 	"item": [
 		{
@@ -13,20 +13,20 @@
 					"name": "Register User",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n    \"email\": \"Joe.doe@example.com\",\n    \"password\": \"password123\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}api/auth/register",
+							"raw": "{{base_url}}api/auth/register",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
 								"auth",
@@ -40,23 +40,22 @@
 					"name": "Login User",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{    \r\n    \"email\": \"test@gmail.com\",\r\n    \"password\": \"test\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n    \"email\": \"Joe.doe@example.com\",\n    \"password\": \"password123\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/auth/login",
+							"raw": "{{base_url}}api/auth/login",
 							"host": [
-								"{{baseUrl}}"
+								"{{base_url}}api"
 							],
 							"path": [
-								"api",
 								"auth",
 								"login"
 							]
@@ -75,24 +74,18 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Trello Clone Backend\",\r\n    \"description\": \"Trello Clone Backend is a project on which I am working.\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n    \"name\": \"Project A\",\n    \"description\": \"Project A is completed\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}api/projects/",
+							"raw": "{{base_url}}api/projects/",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
 								"projects",
@@ -106,41 +99,28 @@
 					"name": "Get All Projects",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}api/projects/",
+							"raw": "{{base_url}}api/projects",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
-								"projects",
-								""
+								"projects"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Project By ID",
+					"name": "Get Projects by ID",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}api/projects/:id",
+							"raw": "{{base_url}}api/projects/:id",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
 								"projects",
@@ -149,7 +129,64 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "66c7976954bd524fad7257ed"
+									"value": "66c8624e295ecc1fa891d9e5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Project Trello Clone \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/projects/:id",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66c8624e295ecc1fa891d9e5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}api/projects/:id",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66c840dc08bd11359f0cec7a"
 								}
 							]
 						}
@@ -167,28 +204,21 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
+								"key": "Content-Type",
+								"value": "application/json"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"project\": \"60d21b4667d0d8992e610c85\",\r\n  \"name\": \"Design the homepage\",\r\n  \"description\": \"Create the main homepage layout and design.\",\r\n  \"status\": \"In Progress\",\r\n  \"tags\": [\"design\", \"homepage\"],\r\n  \"dueDate\": \"2024-08-30T00:00:00.000Z\",\r\n  \"assignedUser\": \"60d21b4967d0d8992e610c87\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n  \"project_id\": \"60d21b4667d0d8992e610c85\",\n  \"name\": \"Design the homepage\",\n  \"description\": \"Create the main homepage layout and design.\",\n  \"status\": \"In Progress\",\n  \"tags\": [\"design\", \"homepage\"],\n  \"dueDate\": \"2024-08-30T00:00:00.000Z\",\n  \"assignedUser\": \"60d21b4967d0d8992e610c87\"\n}\n"
 						},
 						"url": {
-							"raw": "{{baseUrl}}api/tasks/",
+							"raw": "{{base_url}}api/tasks",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
-								"tasks",
-								""
+								"tasks"
 							]
 						}
 					},
@@ -198,17 +228,11 @@
 					"name": "Get All Tasks",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}api/tasks/",
+							"raw": "{{base_url}}api/tasks/",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
 								"tasks",
@@ -219,29 +243,80 @@
 					"response": []
 				},
 				{
-					"name": "Get Tasks by Project ID",
+					"name": "Get Tasks By ID",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{token}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}api/tasks/:projectId",
+							"raw": "{{base_url}}api/tasks/:id",
 							"host": [
-								"{{baseUrl}}api"
+								"{{base_url}}api"
 							],
 							"path": [
 								"tasks",
-								":projectId"
+								":id"
 							],
 							"variable": [
 								{
-									"key": "projectId",
-									"value": "60d21b4667d0d8992e610c85"
+									"key": "id",
+									"value": "66c7a04047d5a1f07902f444"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task By Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Design the homepage and contactuspage\",\r\n  \"description\": \"Create the main homepage layout and design.\",\r\n  \"status\": \"In Progress\",\r\n  \"tags\": [\"design\", \"homepage\"],\r\n  \"dueDate\": \"2024-08-30T00:00:00.000Z\",\r\n  \"assignedUser\": \"60d21b4967d0d8992e610c87\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/tasks/:id",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66c7a04047d5a1f07902f444"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}api/tasks/:id",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"tasks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66c7a04047d5a1f07902f444"
 								}
 							]
 						}
@@ -251,6 +326,16 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Yzg2MWZmMjk1ZWNjMWZhODkxZDllMSIsImlhdCI6MTcyNDQwODMzNCwiZXhwIjoxNzI3MDAwMzM0fQ.WXqIzzchZxMI-nuIQaTY8-49HpItYlRqbZcPvdSFaws",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -275,12 +360,8 @@
 	],
 	"variable": [
 		{
-			"key": "baseUrl",
+			"key": "base_url",
 			"value": "https://trello-clone-backend-tzd2.onrender.com/"
-		},
-		{
-			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Yzc3NTVhZGQ4NTRiMGM0NmFjNDQyOCIsImlhdCI6MTcyNDM0NzczOCwiZXhwIjoxNzI2OTM5NzM4fQ.TZE3vt2T5EkKovYr7eubcsBST8wTRiRZeniMfDu_o4E"
 		}
 	]
 }

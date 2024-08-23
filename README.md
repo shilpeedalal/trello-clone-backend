@@ -83,9 +83,9 @@ This will start the server on `http://localhost:5000`.
 ## API Routes
 
 ### Authentication
-- **POST** `/api/users/register` - Register a new user
+- **POST** `/api/auth/register` - Register a new user
   - **Request Body:** `{ "name": "John Doe", "email": "john@example.com", "password": "password123" }`
-- **POST** `/api/users/login` - Log in an existing user
+- **POST** `/api/auth/login` - Log in an existing user
   - **Request Body:** `{ "email": "john@example.com", "password": "password123" }`
 
 ### Projects
