@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-    project: { 
+    project_id: { 
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Project', 
         required: true 
@@ -11,7 +11,8 @@ const taskSchema = new mongoose.Schema({
         required: true 
     },
     description: { 
-        type: String 
+        type: String,
+        required: true 
     },
     status: { 
         type: String, 
